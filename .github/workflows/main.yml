@@ -14,8 +14,8 @@ jobs:
        - name: Update File
          run: | 
           count=$(($(cat second-test.txt | grep -oP '(\d+)' || echo 0) + 50))
-          echo "hello i am devops" > updated-test.txt
-          echo "my commit count is : $count" >> updated-file.txt
+          echo "hello i am devops"
+          echo "my commit count is : $count"
           echo "thank you" >> updated-test.txt
        - name: setup git config
          run: |
