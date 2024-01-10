@@ -16,12 +16,12 @@ jobs:
           count=$(($(cat second-test.txt | grep -oP '(\d+)' || echo 0) + 50))
           echo "hello i am devops"
           echo "my commit count is : $count"
-          echo "thank you" >> updated-test.txt
+          echo "thank you"
        - name: setup git config
          run: |
           git config --global user.email "swathi.cherala@wohlig.com"
           git config --global user.name "swathiwohlig"
-          git add updated-test.txt
+          git add test.txt
           git commit -m “Incremented by 50" 
           - run: git push origin main
 
