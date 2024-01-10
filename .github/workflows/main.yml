@@ -22,7 +22,7 @@ jobs:
           git config --global user.email "swathi.cherala@wohlig.com"
           git config --global user.name "swathiwohlig"
           git add updated-test.txt
-          git commit -m “Increased count by 50 numbers" 
+          git commit -m “Incremented by 50" 
           - run: git push origin main
 
 
