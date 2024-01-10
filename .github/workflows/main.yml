@@ -1,20 +1,17 @@
 name: Resources
 on: repository_dispatch
 jobs:
-    resources:
-        name: Update resources
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v1
-
-            - uses: actions/setup-node@v1
-
-            - name: Fetch resources
-              run: ./scripts/fetch-resources.sh
-
-            - name: Update resources
-              uses: test-room-7/action-update-file@v1
-              with:
-                  file-path: path/to/file
-                  commit-msg: Update resources
-                  github-token: ${{ secrets.GITHUB_TOKEN }}
+    push:
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v3
+         with:
+            repository: <repo name>
+            ref: 'master'
+            token:  ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+       - name: setup git config
+         run: |
+          git config user.name "GitHub Actions Bot"
+              git config user.email "<>"
+          - <make changes and commit >
+              - run: git push origin master
