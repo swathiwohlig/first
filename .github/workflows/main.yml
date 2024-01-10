@@ -7,9 +7,12 @@ on:
 jobs:
     push:
      runs-on: ubuntu-latest
+
      steps:
        - name: Checkout Repository
          uses: actions/checkout@v2
+         with:
+          repository: swathiwohlig/first
 
        - name: Update File
          run: | 
@@ -17,6 +20,7 @@ jobs:
           echo "hello i am devops" > test.txt
           echo "my commit count is : $count" >> test.txt
           echo "thank you"
+
        - name: Commit and Push Changes
          run: |
           git config --global user.email "swathi.cherala@wohlig.com"
