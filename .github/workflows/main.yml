@@ -19,7 +19,7 @@ jobs:
           git config --global user.name "swathiwohlig"
       - name: Update test.txt
         run: |
-          cd test-gitops
+          cd second
  
           commit_count=$(grep -oP '(?<=commit count is: )\d+' test.txt)
           new_commit_count=$((commit_count + 50))
