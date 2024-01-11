@@ -17,9 +17,12 @@ jobs:
           git clone https://${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/swathiwohlig/second.git
           echo ${{ secrets.ACTIONS_GITHUB_TOKEN }}
           cd second
-          git checkout main
+          echo "first"
+          cat test.txt
           count=$(($(grep -oP 'my commit count is : \K\d+' test.txt) + 50))
+          echo $count
           sed -i "s/my commit count is : $count/my commit count is : $count/" test.txt
+          echo "second"
           cat test.txt
 
        - name: Commit and Push Changes
