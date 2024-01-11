@@ -27,7 +27,7 @@ jobs:
          run: |
           git config --global user.email "swathi.cherala@wohlig.com"
           git config --global user.name "swathiwohlig"
-          git add test.txt
+          git add .
           git commit -m "Incremented by 50 " 
           git push
 
