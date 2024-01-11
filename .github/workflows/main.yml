@@ -21,11 +21,11 @@ jobs:
         run: |
           cd second
  
-          commit_count=$(grep -oP '(?<=commit count is: )\d+' test.txt)
+          commit_count=$(grep -oP '(?<=commit count is : )\d+' test.txt)
           new_commit_count=$((commit_count + 50))
           
           echo "hello i am devops" > test.txt
-          echo "my commit count is: $new_commit_count" >> test.txt
+          echo "my commit count is : $new_commit_count" >> test.txt
           echo "thank you" >> test.txt
  
           git add .
