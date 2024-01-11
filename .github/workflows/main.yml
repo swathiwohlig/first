@@ -30,8 +30,6 @@ jobs:
           git config --global user.name "swathiwohlig"
           git commit -m "Incremented by 50 number" 
           git push
-         env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
 
 
 
