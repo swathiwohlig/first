@@ -21,9 +21,12 @@ jobs:
           count=$(($(grep -oP 'my commit count is : \K\d+' test.txt) + 50))
           sed -i "s/my commit count is : $count/my commit count is : $count/" test.txt
           cat test.txt
+
+       - name: Commit and Push Changes
+         run: |
           git config --global user.email "swathi.cherala@wohlig.com"
           git config --global user.name "swathiwohlig"
           git add .
-          git commit -m "updating newer data"
-          git push origin main
+          git commit -m "Incremented by 50" 
+          git push origin main 
 
