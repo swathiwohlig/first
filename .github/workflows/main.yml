@@ -23,7 +23,7 @@ jobs:
           cat test.txt
 
        - name: Commit and Push Changes
-         run: |
+         run:
           git config --global user.email "swathi.cherala@wohlig.com"
           git config --global user.name "swathiwohlig"
           git add .
