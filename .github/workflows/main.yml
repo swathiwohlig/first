@@ -9,27 +9,26 @@ jobs:
      runs-on: ubuntu-latest
 
      steps:
-       - name: Checkout Repository
-         uses: actions/checkout@v2
-
-       - name: Update File
-         run: | 
-          git clone https://${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/swathiwohlig/second.git
-          echo ${{ secrets.ACTIONS_GITHUB_TOKEN }}
-          cd second
-          echo "first"
-          cat test.txt
-          count=$(($(grep -oP 'my commit count is : \K\d+' test.txt) + 50))
-          echo $count
-          sed -i "s/my commit count is: [0-9]\+/my commit count is: $count/" test.txt
-          echo "second"
-          cat test.txt
-
-       - name: Commit and Push Changes
-         run: |
+      - name: checkout test-commits
+        uses: actions/checkout@v3
+      - name: checkout test-gitops
+        run:  git clone https://swathiwohlig:${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/swathiwohlig/second.git
+      - name: configure git
+        run: |
           git config --global user.email "swathi.cherala@wohlig.com"
           git config --global user.name "swathiwohlig"
+      - name: Update test.txt
+        run: |
+          cd test-gitops
+ 
+          commit_count=$(grep -oP '(?<=commit count is: )\d+' test.txt)
+          new_commit_count=$((commit_count + 50))
+          
+          echo "hello i am devops" > test.txt
+          echo "my commit count is: $new_commit_count" >> test.txt
+          echo "thank you" >> test.txt
+ 
           git add .
-          git commit -m "Incremented by 50" 
-          git push origin main 
+          git commit -m "update new count"
+          git push origin main
 
