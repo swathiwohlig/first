@@ -29,6 +29,6 @@ jobs:
           echo "thank you" >> test.txt
  
           git add .
-          git commit -m "update new count"
+          git commit -m "update new count in txt file"
           git push origin main
 
