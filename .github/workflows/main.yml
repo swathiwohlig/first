@@ -16,7 +16,7 @@ jobs:
 
        - name: Update File
          run: | 
-          git clone https://${{ secrets.ACTIONS_GITHUB_TOKEN }}github.com/swathiwohlig/second.git
+          git clone https://${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/swathiwohlig/second.git
           echo ${{ secrets.ACTIONS_GITHUB_TOKEN }}
           cd second
           git checkout main
