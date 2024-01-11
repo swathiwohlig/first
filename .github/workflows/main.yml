@@ -21,7 +21,7 @@ jobs:
           cat test.txt
           count=$(($(grep -oP 'my commit count is : \K\d+' test.txt) + 50))
           echo $count
-          sed -i "s/my commit count is : $count/my commit count is : $count/" test.txt
+          sed -i "s/my commit count is: [0-9]\+/my commit count is: $count/" test.txt
           echo "second"
           cat test.txt
 
