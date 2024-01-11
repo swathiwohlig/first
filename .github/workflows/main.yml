@@ -12,11 +12,14 @@ jobs:
        - name: Checkout Repository
          uses: actions/checkout@v2
          with:
-           repository: swathiwohlig/second
-           path: reoB
+           node-version: 14
 
        - name: Update File
          run: | 
+          git clone https://${{ secrets.ACTIONS_GITHUB_TOKEN }}github.com/swathiwohlig/second.git
+          echo ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+          cd second
+          git checkout main
           count=$(grep -oP 'my commit count is : \K\d+' test.txt)
           new_count=$((count + 50))
           sed -i "s/my commit count is : $count/my commit count is : $new_count/" test.txt
