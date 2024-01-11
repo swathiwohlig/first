@@ -2,7 +2,7 @@ name: Update file
 on:
   push:
     branches:
-      - main
+      - uat
 
 jobs:
     push:
