@@ -12,7 +12,8 @@ jobs:
        - name: Checkout Repository
          uses: actions/checkout@v2
          with:
-          repository: swathiwohlig/first
+           repository: swathiwohlig/second
+           path: reoB
 
        - name: Update File
          run: | 
