@@ -16,18 +16,18 @@ jobs:
 
        - name: Update File
          run: | 
-          count=$(($(cat test.txt | grep -oP '(\d+)' || echo 0) + 50))
-          echo "hello i am devops" > test.txt
-          echo "my commit count is : $count" >> test.txt
-          echo "thank you"
+          count=$(grep -oP 'my commit count is : \K\d+' test.txt)
+          new_count=$((count + 50))
+          sed -i "s/my commit count is : $count/my commit count is : $new_count/" test.txt
 
        - name: Commit and Push Changes
          run: |
           git config --global user.email "swathi.cherala@wohlig.com"
           git config --global user.name "swathiwohlig"
-          git add test.txt
           git commit -m "Incremented by 50 number" 
-          - run: git push origin main
+          git push
+         env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
 
 
 
